@@ -5,12 +5,14 @@ help() {
 picanon - anonymise a picture
 2014, Laurent Ghigonis <laurent@gouloum.fr>
 
-Support: JPG, maybe more
 Actions performed:
 * create a copy with new suffix (default=$SUFFIX)
 * change picture quality (default=$QUALITY)
 * resize the picture (default=$RESIZE)
 * remove exif data
+
+Support:
+* JPG
 
 Dependencies:
 * convert (apt-get install imagemagick)
