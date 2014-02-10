@@ -53,11 +53,11 @@ ext="$(echo $pic |sed s/'.*\.\(.*\)/\1'/)"
 pic_anon="${name}${SUFFIX}.$ext"
 
 echo "[-] Creating $pic_anon"
-cp "$pic" "$pic_anon"
+cp "$pic" "$pic_anon" ||exit 10
 echo "[-] Change picture quality"
-convert "$pic_anon" -quality $QUALITY "$pic_anon"
+convert "$pic_anon" -quality $QUALITY "$pic_anon" ||exit 11
 echo "[-] Resizing picture"
-convert "$pic_anon" -resize $RESIZE "$pic_anon"
+convert "$pic_anon" -resize $RESIZE "$pic_anon" ||exit 12
 echo "[-] Removing exif data"
-exiftool -q -overwrite_original_in_place -all= "$pic_anon"
+exiftool -q -overwrite_original_in_place -all= "$pic_anon" ||exit 13
 echo "[*] DONE $pic_anon"
