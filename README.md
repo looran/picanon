@@ -33,3 +33,6 @@ $ picanon zuppa.jpg
 
 When you want to anonymise a picture from you favorite picture viewer,
 use "Open with" > "picanon" and it will create a new picture with _ANON suffix.
+
+Then you can manually edit the new _ANON picture to hide specific parts,
+for example with shutter edit-mode.
