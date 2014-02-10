@@ -3,7 +3,7 @@
 #### Actions performed:
 
 * create a copy with new suffix (default=_ANON)
-* change picture quality (default=75)
+* change picture quality (default=62)
 * resize the picture (default=1024x768)
 * remove exif data
 
