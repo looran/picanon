@@ -18,15 +18,11 @@ Support:
 
 Dependencies:
 * convert (apt-get install imagemagick)
-* exiftool (apt-get install libimage-exiftool-perl)
 
 Example usage:
 $ picanon zuppa.jpg 
-[-] Creating zuppa_ANON.jpg
-[-] Change picture quality
-[-] Resizing picture
-[-] Removing exif data
-[*] DONE zuppa_ANON.jpg
+[-] Anonymising...
+[*] DONE, CREATED zuppa_ANON.jpg
 _EOF
 }
 err() { echo "$prog Error: $1"; exit $2; }
@@ -37,9 +33,9 @@ picanon [-h] picture.jpg
 _EOF
 }
 
-QUALITY=75
+QUALITY=62
 SUFFIX="_ANON"
-RESIZE="1024x768"
+RESIZE="1024x"
 
 prog=$(basename $0)
 [ $# -lt 1 ] && usage && exit
@@ -54,12 +50,8 @@ ext="$(echo $pic |sed s/'.*\.\(.*\)/\1'/)"
 [ -z "$ext" ] && err "cannot get picture extension !" 3
 pic_anon="${name}${SUFFIX}.$ext"
 
-echo "[-] Creating $pic_anon"
-cp "$pic" "$pic_anon" ||exit 10
-echo "[-] Change picture quality"
-convert "$pic_anon" -quality $QUALITY "$pic_anon" ||exit 11
-echo "[-] Resizing picture"
-convert "$pic_anon" -resize $RESIZE "$pic_anon" ||exit 12
-echo "[-] Removing exif data"
-exiftool -q -overwrite_original_in_place -all= "$pic_anon" ||exit 13
-echo "[*] DONE $pic_anon"
+# The only usefull action
+echo "[-] Anonymising..."
+convert "$pic" -thumbnail $RESIZE -quality $QUALITY -strip $pic_anon ||exit 10
+
+echo "[*] DONE, CREATED $pic_anon"
