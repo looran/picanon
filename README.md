@@ -21,7 +21,8 @@ It does NOT anonymise details inside the picture, you need do to that yourself.
 
 ```bash
 $ picanon zuppa.jpg 
-[-] Anonymising...
+[-] Running convert "zuppa.jpg" -auto-orient -thumbnail 1024x -quality 62
+-strip "zuppa_ANON.jpg"
 [*] DONE, CREATED zuppa_ANON.jpg
 ```
 

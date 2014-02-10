@@ -26,6 +26,7 @@ $ picanon zuppa.jpg
 _EOF
 }
 err() { echo "$prog Error: $1"; exit $2; }
+trace() { echo "[-] Running $@"; eval "$@" ||exit 10; }
 usage() {
     cat <<_EOF
 picanon [-h] picture.jpg
@@ -41,7 +42,6 @@ prog=$(basename $0)
 [ $# -lt 1 ] && usage && exit
 [ $1 = "-h" ] && help && exit
 $(which convert > /dev/null) ||err "cannot find \"convert\"" 1
-$(which exiftool > /dev/null) ||err "cannot find \"exiftool\"" 1
 
 pic="$1"
 name="$(echo $pic |sed s/'\(.*\)\..*/\1'/)"
@@ -52,7 +52,6 @@ pic_anon="${name}${SUFFIX}.$ext"
 
 # The only usefull command
 cmd="convert \"$pic\" -auto-orient -thumbnail $RESIZE -quality $QUALITY -strip \"$pic_anon\""
-echo "[-] Running $cmd"
-eval $cmd ||exit 10
+trace "$cmd"
 
 echo "[*] DONE, CREATED $pic_anon"
