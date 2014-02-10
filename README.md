@@ -1,5 +1,12 @@
 ## picanon - anonymise a picture
 
+```bash
+$ picanon zuppa.jpg 
+[-] Running convert "zuppa.jpg" -auto-orient -thumbnail 1024x -quality 62
+-strip "zuppa_ANON.jpg"
+[*] DONE, CREATED zuppa_ANON.jpg
+```
+
 #### Actions performed:
 
 * create a copy with new suffix (default=_ANON)
@@ -16,15 +23,6 @@ It does NOT anonymise details inside the picture, you need do to that yourself.
 #### Dependencies:
 
 * convert (apt-get install imagemagick)
-
-#### Example usage:
-
-```bash
-$ picanon zuppa.jpg 
-[-] Running convert "zuppa.jpg" -auto-orient -thumbnail 1024x -quality 62
--strip "zuppa_ANON.jpg"
-[*] DONE, CREATED zuppa_ANON.jpg
-```
 
 #### Typical usage
 
