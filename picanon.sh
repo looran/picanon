@@ -51,7 +51,7 @@ ext="$(echo $pic |sed s/'.*\.\(.*\)/\1'/)"
 pic_anon="${name}${SUFFIX}.$ext"
 
 # The only usefull command
-cmd="convert \"$pic\" -thumbnail $RESIZE -quality $QUALITY -strip \"$pic_anon\""
+cmd="convert \"$pic\" -auto-orient -thumbnail $RESIZE -quality $QUALITY -strip \"$pic_anon\""
 echo "[-] Running $cmd"
 eval $cmd ||exit 10
 
