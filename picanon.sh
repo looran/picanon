@@ -11,6 +11,8 @@ Actions performed:
 * resize the picture (default=$RESIZE)
 * remove exif data
 
+It does NOT anonymise details inside the picture, you need do to that yourself.
+
 Support:
 * JPG
 

@@ -7,6 +7,8 @@
 * resize the picture (default=1024x768)
 * remove exif data
 
+It does NOT anonymise details inside the picture, you need do to that yourself.
+
 #### Support
 
 * JPG
