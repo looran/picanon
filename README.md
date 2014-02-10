@@ -26,3 +26,8 @@ $ picanon zuppa.jpg
 [-] Removing exif data
 [*] DONE zuppa_ANON.jpg
 ```
+
+#### Typical usage
+
+When you want to anonymise a picture from you favorite picture viewer,
+use "Open with" > "picanon" and it will create a new picture with _ANON suffix.
