@@ -50,8 +50,9 @@ ext="$(echo $pic |sed s/'.*\.\(.*\)/\1'/)"
 [ -z "$ext" ] && err "cannot get picture extension !" 3
 pic_anon="${name}${SUFFIX}.$ext"
 
-# The only usefull action
-echo "[-] Anonymising..."
-convert "$pic" -thumbnail $RESIZE -quality $QUALITY -strip $pic_anon ||exit 10
+# The only usefull command
+cmd="convert \"$pic\" -thumbnail $RESIZE -quality $QUALITY -strip \"$pic_anon\""
+echo "[-] Running $cmd"
+eval $cmd ||exit 10
 
 echo "[*] DONE, CREATED $pic_anon"
